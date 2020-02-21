@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Body Mass Index</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <!-- load jquery and bootstrap js -->
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script>
+    <script src="assets/js/bootstrap.js"></script>
+    <script type="text/javascript">
+     count = () =>{
+       let nominal = Number(document.getElementById('nominal').value);
+       let bunga = Number(document.getElementById('bunga').value);
+       let periode = Number (document.getElementById('periode').value);
+       let hasil = Number ((nominal + (nominal * bunga / 100)) / periode );
+
+       document.getElementById('hasil').value = "Rp  " + hasil;
+     }
+    </script>
+  </head>
+  <body>
+    <div class="container col-12 h-100 my-auto d-flex justify-content-center">
+      <div class="card col-sm-4">
+        <div class="card-header bg-primary text-white">
+          <h4 align="center">Cicilan Bank</h4>
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-4 mt-3">
+              Nominal
+            </div>
+            <div class="col-8 mt-3">
+              <input type="number" id="nominal" class="form-control" placeholder="Nominal (Rp.)">
+            </div>
+            <div class="col-4 mt-3">
+              Periode
+            </div>
+            <div class="col-8 mt-3">
+              <select class="form-control" name="periode" id="periode">
+                <option value="12">12 Bulan</option>
+                <option value="24">24 Bulan</option>
+                <option value="36">36 Bulan</option>
+              </select>
+            </div>
+            <div class="col-4 mt-3">
+              Bunga
+            </div>
+            <div class="col-8 mt-3">
+              <input type="number" id="bunga" class="form-control" placeholder="Bunga Pertahun">
+            </div>
+
+          </div>
+        </div>
+        <div class="card-footer">
+          <button type="button" class="btn btn-primary btn-block"
+          onclick="count()">Hitung</button>
+          Cicilan
+          <input type="text" id="hasil" class="form-control" readonly>
+        </div>
+      </div>
+    </div>
+  </body>
+</html>
